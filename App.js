@@ -26,6 +26,8 @@ import RegistrationScreen from './Screen/RegistrationScreen';
 import RecoveryPassword from './Screen/RecoveryPassword';
 
 import HomeScreen from './Screen/HomeScreen';
+import TrendingRestaurants from './Screen/TrendingRestaurants';
+import PopularItems from './Screen/PopularItems';
 
 import axios from 'axios';
 
@@ -72,6 +74,16 @@ const HomeStackScreen = () => (
       component={HomeScreen}
       options={{headerShown: false}}
     />
+    <HomeStack.Screen
+      name="TrendingRestaurants"
+      component={TrendingRestaurants}
+      options={{headerShown: false}}
+    />
+    <HomeStack.Screen
+      name="PopularItems"
+      component={PopularItems}
+      options={{headerShown: false}}
+    />
   </HomeStack.Navigator>
 );
 
@@ -86,22 +98,37 @@ const TabsScreen = () => (
   <Tabs.Navigator
     initialRouteName="Home"
     activeColor="#fe5733"
-    inactiveColor="#acacac">
+    inactiveColor="#ACACAC"
+    tabBarOptions={{
+      activeTintColor: '#fe5733',
+      inactiveTintColor: '#ACACAC',
+      showLabel: false,
+    }}>
     <Tabs.Screen
       name="Home"
       component={HomeStackScreen}
       options={{
         //tabBarLabel: 'Home',
-        tabBarIcon: ({color}) => <Icon name="home" color={color} size={26} />,
+        tabBarIcon: ({color}) => <Icon name="home" color={color} size={23} />,
       }}
     />
-    <Tabs.Screen
+    {/* <Tabs.Screen
       name="Bookmark"
       component={HomeStackScreen}
       options={{
         //tabBarLabel: 'Bookmark',
         tabBarIcon: ({color}) => (
-          <Icon name="bookmark" color={color} size={26} />
+          <Icon name="bookmark" color={color} size={23} />
+        ),
+      }}
+    /> */}
+    <Tabs.Screen
+      name="PopularItems"
+      component={PopularItems}
+      options={{
+        //tabBarLabel: 'Bookmark',
+        tabBarIcon: ({color}) => (
+          <Icon name="bookmark" color={color} size={23} />
         ),
       }}
     />
@@ -110,7 +137,7 @@ const TabsScreen = () => (
       component={HomeStackScreen}
       options={{
         //tabBarLabel: 'Notification',
-        tabBarIcon: ({color}) => <Icon name="bell" color={color} size={26} />,
+        tabBarIcon: ({color}) => <Icon name="bell" color={color} size={23} />,
       }}
     />
     <Tabs.Screen
@@ -118,7 +145,7 @@ const TabsScreen = () => (
       component={HomeStackScreen}
       options={{
         //tabBarLabel: 'Help',
-        tabBarIcon: ({color}) => <Icon name="user" color={color} size={26} />,
+        tabBarIcon: ({color}) => <Icon name="user" color={color} size={23} />,
       }}
     />
   </Tabs.Navigator>

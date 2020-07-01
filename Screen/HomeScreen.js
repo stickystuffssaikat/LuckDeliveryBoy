@@ -26,12 +26,12 @@ import {
 
 //import {Button} from 'react-native-elements';
 //import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Trending from './Trending';
+import Trending from './TrendingHomeTemplate';
 import Category from './Category';
 
 //const W = Diamentions.get('window').width;
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   const [selectedValue, setSelectedValue] = useState('java');
   //const {searchQuery} = this.state;
   return (
@@ -54,7 +54,13 @@ const HomeScreen = () => {
               </View>
               <View>
                 <Image
-                  style={{height: 50, width: 50, borderRadius: 50, borderColor: '#fff', borderWidth: 4}}
+                  style={{
+                    height: 50,
+                    width: 50,
+                    borderRadius: 50,
+                    borderColor: '#fff',
+                    borderWidth: 4,
+                  }}
                   source={require('./assets/img/trending/img-1.jpg')}
                 />
               </View>
@@ -69,7 +75,8 @@ const HomeScreen = () => {
               <Text style={[styles.catTitle, styles.colorWhite]}>
                 Trending Restaurants
               </Text>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('TrendingRestaurants')}>
                 <Text style={[styles.colorWhite]}>See All</Text>
               </TouchableOpacity>
             </View>
