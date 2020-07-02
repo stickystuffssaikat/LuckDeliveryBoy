@@ -25,6 +25,7 @@ import {
   ImageBackground,
 } from 'react-native';
 import LineargGradient from 'react-native-linear-gradient';
+import NumericInput from 'react-native-numeric-input';
 
 //import {Button} from 'react-native-elements';
 //import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -33,8 +34,8 @@ import Category from './Category';
 
 //const W = Diamentions.get('window').width;
 
-const PopularItems = ({navigation}) => {
-  const [selectedValue, setSelectedValue] = useState('java');
+const cart = () => {
+  //const [selectedValue, setSelectedValue] = useState('java');
   //const {searchQuery} = this.state;
   return (
     <SafeAreaView style={{flex: 1}}>
@@ -42,61 +43,34 @@ const PopularItems = ({navigation}) => {
         <ScrollView
           style={{backgroundColor: '#ffffff'}}
           scrollEventThrottle={16}>
-          <View style={{flex: 1, height: 300}}>
-            <ImageBackground
-              source={require('./assets/img/popularItem-bnr.jpg')}
-              style={{
-                flex: 1,
-                width: null,
-                height: null,
-                resizeMode: 'cover',
-              }}>
-              <LineargGradient
-                style={{flex: 1}}
-                colors={['#FFFFFF00', '#FFFFFF5E', '#FFFFFF']}
-              />
-            </ImageBackground>
-          </View>
-          <View style={[styles.pb_20, {flex: 1}]}>
-            <View style={[styles.spaceBetween, styles.hCenter, styles.ph_20]}>
-              <View
-                style={[
-                  styles.mr_20,
-                  styles.radius_50,
-                  {borderWidth: 2, borderColor: '#E8E8E8'},
-                ]}>
-                <Image
-                  style={{height: 50, width: 50}}
-                  source={require('./assets/img/iconDominos.png')}
-                />
-              </View>
-              <View style={{flex: 1}}>
-                <Text style={styles.homeItemTitle}>Dominos</Text>
-                <Text style={styles.textCenter}>
-                  <Text style={{color: '#FE5632'}}>Open</Text>
-                  &nbsp; 11am - 11pm
-                </Text>
-                <Text style={{}}>$100 per person</Text>
-              </View>
-              <View style={[styles.displayRow, styles.ml_20]}>
-                <Icon name="star" size={17} color="#FFC107" />
-                <Text style={styles.ml_5}>4.1</Text>
-              </View>
-            </View>
-
+          <View style={[styles.spaceBetween, styles.ph_20, styles.mt_20]}>
             <View
               style={[
                 styles.spaceBetween,
                 styles.hCenter,
-                styles.ph_20,
-                styles.mt_20,
-                styles.pt_20,
+                {
+                  width: '100%',
+                },
               ]}>
-              <Text style={styles.catTitle}>Popular Menu</Text>
-              <Text>10 Menu</Text>
+              <TouchableOpacity>
+                <Feather style={{}} name="arrow-left" color="#333" size={26} />
+                {/* <Text style={{}}>West United States</Text> */}
+              </TouchableOpacity>
+              <Text
+                style={[
+                  styles.catTitle,
+                  {
+                    textAlign: 'auto',
+                    paddingRight: 20,
+                  },
+                ]}>
+                Cart
+              </Text>
+              <Text style={{}} />
             </View>
-
-            <TouchableOpacity
+          </View>
+          <View style={[styles.pb_20, {flex: 1}]}>
+            <View
               style={[
                 styles.displayRow,
                 styles.hCenter,
@@ -120,82 +94,24 @@ const PopularItems = ({navigation}) => {
                 <Text>$70</Text>
               </View>
               <View style={styles.btnActionRight}>
-                <TouchableOpacity
-                  style={styles.btnAdd}
-                  onPress={() => navigation.navigate('cart')}>
-                  <Text style={styles.pr_5}>Add</Text>
-                  <Feather name="plus" size={12} />
-                </TouchableOpacity>
-              </View>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={[
-                styles.displayRow,
-                styles.hCenter,
-                styles.ph_20,
-                styles.mt_10,
-              ]}>
-              <View style={{height: 100, width: 100, marginRight: 20}}>
-                <Image
-                  style={{
-                    flex: 1,
-                    width: null,
-                    height: null,
-                    borderRadius: 7,
-                    resizeMode: 'cover',
-                  }}
-                  source={require('./assets/img/newMenu/img-2.jpg')}
+                <NumericInput
+                  style={styles.pr_5}
+                  minValue={0}
+                  maxValue={50}
+                  totalHeight={40}
+                  totalWidth={90}
+                  rounded={true}
+                  textColor="#707070"
+                  iconStyle={{color: '#707070'}}
+                  onChange={value => console.log(value)}
                 />
-              </View>
-              <View style={styles.displayColumn}>
-                <Text style={styles.homeItemTitle}>Chicken Taco</Text>
-                <Text>$70</Text>
-              </View>
-              <View style={styles.btnActionRight}>
-                <TouchableOpacity
-                  style={styles.btnAdd}
-                  onPress={() => navigation.navigate('cart')}>
-                  <Text style={styles.pr_5}>Add</Text>
-                  <Feather name="plus" size={12} />
+                <TouchableOpacity>
+                  <Text style={[styles.pt_10, {color: '#DC1E1E'}]}>Remove</Text>
                 </TouchableOpacity>
               </View>
-            </TouchableOpacity>
+            </View>
 
-            <TouchableOpacity
-              style={[
-                styles.displayRow,
-                styles.hCenter,
-                styles.ph_20,
-                styles.mt_10,
-              ]}>
-              <View style={{height: 100, width: 100, marginRight: 20}}>
-                <Image
-                  style={{
-                    flex: 1,
-                    width: null,
-                    height: null,
-                    borderRadius: 7,
-                    resizeMode: 'cover',
-                  }}
-                  source={require('./assets/img/trending/img-3.jpg')}
-                />
-              </View>
-              <View style={styles.displayColumn}>
-                <Text style={styles.homeItemTitle}>Chicken Taco</Text>
-                <Text>$70</Text>
-              </View>
-              <View style={styles.btnActionRight}>
-                <TouchableOpacity
-                  style={styles.btnAdd}
-                  onPress={() => navigation.navigate('cart')}>
-                  <Text style={styles.pr_5}>Add</Text>
-                  <Feather name="plus" size={12} />
-                </TouchableOpacity>
-              </View>
-            </TouchableOpacity>
-
-            <TouchableOpacity
+            <View
               style={[
                 styles.displayRow,
                 styles.hCenter,
@@ -215,20 +131,28 @@ const PopularItems = ({navigation}) => {
                 />
               </View>
               <View style={styles.displayColumn}>
-                <Text style={styles.homeItemTitle}>Chicken Taco</Text>
+                <Text style={styles.homeItemTitle}>Pizza</Text>
                 <Text>$70</Text>
               </View>
               <View style={styles.btnActionRight}>
-                <TouchableOpacity
-                  style={styles.btnAdd}
-                  onPress={() => navigation.navigate('cart')}>
-                  <Text style={styles.pr_5}>Add</Text>
-                  <Feather name="plus" size={12} />
+                <NumericInput
+                  style={styles.pr_5}
+                  minValue={0}
+                  maxValue={50}
+                  totalHeight={40}
+                  totalWidth={90}
+                  rounded={true}
+                  textColor="#707070"
+                  iconStyle={{color: '#707070'}}
+                  onChange={value => console.log(value)}
+                />
+                <TouchableOpacity>
+                  <Text style={[styles.pt_10, {color: '#DC1E1E'}]}>Remove</Text>
                 </TouchableOpacity>
               </View>
-            </TouchableOpacity>
+            </View>
 
-            <TouchableOpacity
+            <View
               style={[
                 styles.displayRow,
                 styles.hCenter,
@@ -244,21 +168,46 @@ const PopularItems = ({navigation}) => {
                     borderRadius: 7,
                     resizeMode: 'cover',
                   }}
-                  source={require('./assets/img/trending/img-5.jpg')}
+                  source={require('./assets/img/trending/img-3.jpg')}
                 />
               </View>
               <View style={styles.displayColumn}>
-                <Text style={styles.homeItemTitle}>Chicken Taco</Text>
+                <Text style={styles.homeItemTitle}>Chicken Snacks</Text>
                 <Text>$70</Text>
               </View>
               <View style={styles.btnActionRight}>
-                <TouchableOpacity
-                  style={styles.btnAdd}
-                  onPress={() => navigation.navigate('cart')}>
-                  <Text style={styles.pr_5}>Add</Text>
-                  <Feather name="plus" size={12} />
+                <NumericInput
+                  style={styles.pr_5}
+                  minValue={0}
+                  maxValue={50}
+                  totalHeight={40}
+                  totalWidth={90}
+                  rounded={true}
+                  textColor="#707070"
+                  iconStyle={{color: '#707070'}}
+                  onChange={value => console.log(value)}
+                />
+                <TouchableOpacity>
+                  <Text style={[styles.pt_10, {color: '#DC1E1E'}]}>Remove</Text>
                 </TouchableOpacity>
               </View>
+            </View>
+          </View>
+          <View style={[styles.pb_20, {flex: 1, backgroundColor: '#F0F0F0'}]}>
+            <View
+              style={[
+                styles.spaceBetween,
+                styles.hCenter,
+                styles.ph_20,
+                styles.mt_20,
+              ]}>
+              <Text>Bill Details</Text>
+              <Text>Apply Promocode</Text>
+            </View>
+          </View>
+          <View style={[styles.pb_20, {flex: 1}]}>
+            <TouchableOpacity style={styles.mh_20}>
+              <Text style={styles.btnDefault}>Proceed to checkout</Text>
             </TouchableOpacity>
           </View>
         </ScrollView>
@@ -322,6 +271,9 @@ const styles = StyleSheet.create({
   mv_20: {
     marginVertical: 20,
   },
+  pt_10: {
+    paddingTop: 10,
+  },
   pt_20: {
     paddingTop: 20,
   },
@@ -358,7 +310,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'flex-end',
-    alignItems: 'center',
+    alignItems: 'flex-end',
     marginLeft: 'auto',
   },
   btnAdd: {
@@ -371,6 +323,16 @@ const styles = StyleSheet.create({
     borderColor: '#CCCCCC',
     borderWidth: 1,
   },
+  btnDefault: {
+    fontFamily: 'SFUIDisplay-Light',
+    fontSize: 20,
+    textAlign: 'center',
+    backgroundColor: '#fd3400',
+    color: '#fff',
+    marginTop: 10,
+    paddingVertical: 15,
+    borderRadius: 10,
+  },
 });
 
-export default PopularItems;
+export default cart;

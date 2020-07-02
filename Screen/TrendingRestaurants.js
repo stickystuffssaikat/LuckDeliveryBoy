@@ -40,7 +40,14 @@ const TrendingRestaurants = () => {
         <ScrollView style={{}} scrollEventThrottle={16}>
           <View style={styles.pb_20}>
             <View style={[styles.spaceBetween, styles.ph_20, styles.mt_20]}>
-              <View style={[styles.displayRow, styles.hCenter]}>
+              <View
+                style={[
+                  styles.spaceBetween,
+                  styles.hCenter,
+                  {
+                    width: '100%',
+                  },
+                ]}>
                 <TouchableOpacity>
                   <Feather
                     style={{}}
@@ -50,6 +57,17 @@ const TrendingRestaurants = () => {
                   />
                   {/* <Text style={{}}>West United States</Text> */}
                 </TouchableOpacity>
+                <Text
+                  style={[
+                    styles.catTitle,
+                    {
+                      textAlign: 'auto',
+                      paddingRight: 20,
+                    },
+                  ]}>
+                  Trending Restaurants
+                </Text>
+                <Text style={{}} />
               </View>
             </View>
 

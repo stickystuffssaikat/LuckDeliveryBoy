@@ -28,6 +28,7 @@ import RecoveryPassword from './Screen/RecoveryPassword';
 import HomeScreen from './Screen/HomeScreen';
 import TrendingRestaurants from './Screen/TrendingRestaurants';
 import PopularItems from './Screen/PopularItems';
+import cart from './Screen/cart';
 
 import axios from 'axios';
 
@@ -82,6 +83,11 @@ const HomeStackScreen = () => (
     <HomeStack.Screen
       name="PopularItems"
       component={PopularItems}
+      options={{headerShown: false}}
+    />
+    <HomeStack.Screen
+      name="cart"
+      component={cart}
       options={{headerShown: false}}
     />
   </HomeStack.Navigator>
